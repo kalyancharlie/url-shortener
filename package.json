@@ -4,11 +4,17 @@
   "description": "URL Shortener for reducing the long urls to tiny urls",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently -m=50 -n \"server,client\" -c \"cyan.bold,blue.bold\" \"npm run dev:server\" \"npm run dev:client\"",
+    "server:install": "cd server && npm run install",
+    "client:install": "cd client && npm run install",
+    "all:install": "concurrently -k -n \"server:install,client:install\" -c \"cyan.bold,blue.bold\" -r 1 npm run server:install npm run client:install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "npm start --prefix client"
   },
   "author": "Kalyan Chinna Bathula",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "concurrently": "^7.0.0"
   }
 }
