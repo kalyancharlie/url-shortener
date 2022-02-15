@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently -m=50 -n \"server,client\" -c \"cyan.bold,blue.bold\" \"npm run dev:server\" \"npm run dev:client\"",
-    "server:install": "cd server && npm run install",
-    "client:install": "cd client && npm run install",
+    "server:install": "cd server && npm install",
+    "client:install": "cd client && npm install",
     "all:install": "concurrently -k -n \"server:install,client:install\" -c \"cyan.bold,blue.bold\" -r 1 npm run server:install npm run client:install",
     "dev:server": "cd server && npm run dev",
     "dev:client": "npm start --prefix client",
     "build:client": "cd client && npm run build",
-    "start": "npm run all:install && npm run dev"
+    "start": "npm run server:install && npm run client:install && npm run build:client && npm run dev"
   },
   "author": "Kalyan Chinna Bathula",
   "license": "MIT",
