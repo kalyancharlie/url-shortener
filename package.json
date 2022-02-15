@@ -16,13 +16,14 @@
     "dev:server": "cd server && npm run dev",
     "dev:client": "npm start --prefix client",
     "build:client": "cd client && npm run build",
-    "start": "npm run server:install && npm run client:install && npm run build:client && npm run dev:server"
+    "start": "npm run server:install && npm run client:install && npm run build:client && npm run dev:server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Kalyan Chinna Bathula",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^7.0.0"
   },
-  "devDependencies": {},
-  "heroku-postbuild": "cd client && npm install && npm run build"
+  "devDependencies": {}
+  
 }
