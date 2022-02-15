@@ -13,9 +13,9 @@ class MongoDB {
         return mongoose
         .connect(this.url, this.options)
         .then(() => {
-            console.log("MongoDB Connected");
+            log("MongoDB Connected");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => log(err));
     }
 }
 

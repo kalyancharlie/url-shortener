@@ -1,7 +1,7 @@
-const isLogging = process.env.MODE === 'dev' ? true : false;
+const isLogging = process.env.LOG_MODE === 'true' ? true : false;
 
-const log = (message) => {
-    if (isLogging) {
+const log = (message, forceRun) => {
+    if (isLogging || forceRun) {
         console.log(message);
     }
 }
