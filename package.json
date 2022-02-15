@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "URL Shortener for reducing the long urls to tiny urls",
   "main": "index.js",
+  "engines": {
+    "node": "=14.0.0",
+    "npm": "=6.14.4"
+  },
+  },
   "scripts": {
     "dev": "concurrently -m=50 -n \"server,client\" -c \"cyan.bold,blue.bold\" \"npm run dev:server\" \"npm run dev:client\"",
     "server:install": "cd server && npm install",
@@ -11,12 +16,13 @@
     "dev:server": "cd server && npm run dev",
     "dev:client": "npm start --prefix client",
     "build:client": "cd client && npm run build",
-    "start": "npm run server:install && npm run client:install && npm run build:client && npm run dev"
+    "start": "npm run server:install && npm run client:install && npm run build:client && npm run dev:server"
   },
   "author": "Kalyan Chinna Bathula",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^7.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "heroku-postbuild": "cd client && npm install && npm run build"
 }
