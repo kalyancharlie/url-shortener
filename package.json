@@ -7,7 +7,6 @@
     "node": "=14.0.0",
     "npm": "=6.14.4"
   },
-  },
   "scripts": {
     "dev": "concurrently -m=50 -n \"server,client\" -c \"cyan.bold,blue.bold\" \"npm run dev:server\" \"npm run dev:client\"",
     "server:install": "cd server && npm install",
