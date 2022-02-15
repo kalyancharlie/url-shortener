@@ -9,12 +9,14 @@
     "client:install": "cd client && npm run install",
     "all:install": "concurrently -k -n \"server:install,client:install\" -c \"cyan.bold,blue.bold\" -r 1 npm run server:install npm run client:install",
     "dev:server": "cd server && npm run dev",
-    "dev:client": "npm start --prefix client"
+    "dev:client": "npm start --prefix client",
+    "build:client": "cd client && npm run build",
+    "start": "npm run all:install && npm run dev"
   },
   "author": "Kalyan Chinna Bathula",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^7.0.0"
-  }
+  },
+  "devDependencies": {}
 }
