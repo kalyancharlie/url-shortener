@@ -49,6 +49,21 @@ const URLSearch: React.FC<Props> = ({ children }) => {
     }
   };
 
+  // Copy to clipboard
+  const copyToClipboard = (e: React.MouseEvent<HTMLDivElement>) => {
+    try {
+      e.preventDefault();
+      navigator.clipboard.writeText(shortUrl);
+      // copy to clipboard
+      // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
+      
+    } catch(e) {
+      log("copy to clipboard error");
+      log(e);
+    }
+  }
+
+
   // Get Short URL from API
   const getShortUrl = async (longUrl: string) => {
     try {
@@ -182,6 +197,7 @@ const URLSearch: React.FC<Props> = ({ children }) => {
               <div
                 title="Click to copy the Short URL"
                 className="copy-icon-container"
+                onClick={copyToClipboard}
               >
                 <MdOutlineContentCopy className="copy-icon" />
               </div>

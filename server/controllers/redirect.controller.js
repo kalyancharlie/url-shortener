@@ -52,7 +52,7 @@ module.exports = {
         const newUrl = new Url({
           countId: 0,
           longUrl,
-          count: 1,
+          count: 0,
           shortUrl: null,
         });
         const savedUrl = await newUrl.save();
