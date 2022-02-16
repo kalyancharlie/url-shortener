@@ -34,6 +34,17 @@ app.use(cookieParser());
 const indexRouter = require('./routes/index')
 app.use('/', indexRouter);
 
+// Static Files Serving
+if (process.env.NODE_ENV === 'production') {
+  __clientDir = path.join(__dirname, '../')
+  __clientBuildDir = path.join(__clientDir, '/client/build')
+  console.log('Serving Files from: ', __clientBuildDir)
+  app.use(express.static(__clientBuildDir))
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__clientBuildDir, 'index.html'))
+  })
+}
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
