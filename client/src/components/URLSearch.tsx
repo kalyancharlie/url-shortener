@@ -32,7 +32,6 @@ const URLSearch: React.FC<Props> = ({ children }) => {
     message: "Invalid URL",
   });
   const errorToast = useRef<HTMLDivElement>(null);
-  const outputDiv = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     log("URLSearch Rendered");
@@ -54,9 +53,6 @@ const URLSearch: React.FC<Props> = ({ children }) => {
     try {
       e.preventDefault();
       navigator.clipboard.writeText(shortUrl);
-      // copy to clipboard
-      // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-      
     } catch(e) {
       log("copy to clipboard error");
       log(e);
@@ -158,6 +154,7 @@ const URLSearch: React.FC<Props> = ({ children }) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setLongUrl(e.target.value);
           }}
+          value={longUrl}
         />
         <button onClick={handleShortenUrl} className="btn-grad search-btn">
           {loading ? (
