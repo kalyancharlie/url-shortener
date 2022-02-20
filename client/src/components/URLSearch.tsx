@@ -53,12 +53,11 @@ const URLSearch: React.FC<Props> = ({ children }) => {
     try {
       e.preventDefault();
       navigator.clipboard.writeText(shortUrl);
-    } catch(e) {
+    } catch (e) {
       log("copy to clipboard error");
       log(e);
     }
-  }
-
+  };
 
   // Get Short URL from API
   const getShortUrl = async (longUrl: string) => {
@@ -88,8 +87,8 @@ const URLSearch: React.FC<Props> = ({ children }) => {
       }
       setShortUrl(json.data.shortUrl);
       setError({ ...error, isError: false, message: "" });
-      log('setting long url')
-      setOutputLongUrl(longUrl)
+      log("setting long url");
+      setOutputLongUrl(longUrl);
       setLongUrl("");
     } catch (err) {
       log("get short url error");
@@ -102,12 +101,12 @@ const URLSearch: React.FC<Props> = ({ children }) => {
 
   // Toast Effect
   useEffect(() => {
-    log("inside error check useffect")
-    if(error.isError) {
-    errorToast?.current?.classList?.remove?.("d-none");
-    setTimeout(() => {
-      errorToast?.current?.classList?.add?.("show-error-toast");
-    }, 100)
+    log("inside error check useffect");
+    if (error.isError) {
+      errorToast?.current?.classList?.remove?.("d-none");
+      setTimeout(() => {
+        errorToast?.current?.classList?.add?.("show-error-toast");
+      }, 100);
       let interTime: NodeJS.Timeout;
       const timerId = setTimeout(() => {
         errorToast?.current?.classList?.remove?.("show-error-toast");
@@ -120,14 +119,12 @@ const URLSearch: React.FC<Props> = ({ children }) => {
         clearTimeout(timerId);
       };
     }
-    
   }, [error]);
 
   // Short Url Effect
   useEffect(() => {
-    if(!shortUrl) return
-
-  }, [shortUrl])
+    if (!shortUrl) return;
+  }, [shortUrl]);
 
   // Handle Shorten URL
   const handleShortenUrl = (
@@ -170,17 +167,15 @@ const URLSearch: React.FC<Props> = ({ children }) => {
         </button>
       </div>
       <div className="search-output-container">
-        <div
-          className="search-error-container d-none"
-          ref={errorToast}
-        >
+        <div className="search-error-container d-none" ref={errorToast}>
           {error.isError && <p>{error.message}</p>}
         </div>
-        <div className={shortUrl ? 'search-output' : 'search-output d-none'}>
-            <div className="search-output-contents">
-              <div className="long-url-container" title={outputLongUrl}>
-                <p className="long-url">{outputLongUrl}</p>
-              </div>
+        <div className={shortUrl ? "search-output" : "search-output d-none"}>
+          <div className="search-output-contents">
+            <div className="long-url-container" title={outputLongUrl}>
+              <p className="long-url">{outputLongUrl}</p>
+            </div>
+            <div className="url-and-icon-container">
               <div className="short-url-container" title="Your shortened URL">
                 <a
                   href={shortUrl}
@@ -199,6 +194,7 @@ const URLSearch: React.FC<Props> = ({ children }) => {
                 <MdOutlineContentCopy className="copy-icon" />
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
