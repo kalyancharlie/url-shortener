@@ -30,7 +30,7 @@ module.exports = {
         console.timeEnd('MONGODB FETCH TIME');
         if (!url) return null;
         console.time('REDIS CACHE SET TIME');
-        await redisClient.set(shortUrl, url.longUrl);
+        await redisClient.set(shortUrl, url.longUrl, { ex: 60 * 60 * 24 * 30 });
         console.timeEnd('REDIS CACHE SET TIME');
         return url.longUrl;
       }
