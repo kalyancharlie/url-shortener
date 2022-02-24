@@ -114,7 +114,7 @@ body {
   max-width: 800px;
   background-color: #fff;
   border-radius: 7px;
-  padding: 12px 15px;
+  padding: 12px 20px;
   width: 100%
 }
 
@@ -139,7 +139,7 @@ body {
 .url-and-icon-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   gap: 30px;
 }
 
@@ -149,13 +149,23 @@ body {
 }
 
 .copy-icon-container {
-  padding: 4px;
+  padding: 6px 8px;
   background-color: transparent;
   border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6e7ec;
 }
 
 .copy-icon-container:hover {
+  cursor: pointer;
   background-color: #ecedf9;
+}
+
+.copy-text {
+  margin-right: 8px;
 }
 
 .copy-icon {
@@ -186,5 +196,26 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+  }
+  .long-url-container {
+    max-width: none;
+  }
+  .url-and-icon-container {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .url-and-icon-container {
+    gap: 15px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .copy-icon-container {
+    width: 100%;
+  }
+  .search-output {
+    padding: 10px;
   }
 }

@@ -191,6 +191,7 @@ const URLSearch: React.FC<Props> = ({ children }) => {
                 className="copy-icon-container"
                 onClick={copyToClipboard}
               >
+                <span className="copy-text">Copy</span>
                 <MdOutlineContentCopy className="copy-icon" />
               </div>
             </div>
