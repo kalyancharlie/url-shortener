@@ -184,20 +184,6 @@ body {
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 400px) {
-  .url-and-icon-container {
-    gap: 15px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-  .copy-icon-container {
-    width: 100%;
-  }
-  .search-output {
-    padding: 10px;
-  }
-}
-
 @media screen and (max-width:600px) {
   .search-input-url {
     width: 100%
@@ -220,3 +206,16 @@ body {
   }
 }
 
+@media screen and (max-width: 475px) {
+  .url-and-icon-container {
+    gap: 15px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .copy-icon-container {
+    width: 100%;
+  }
+  .search-output {
+    padding: 10px;
+  }
+}
